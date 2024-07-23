@@ -22,4 +22,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',v.home),
     path('addemp',v.add_emp),
+    path('addaccount',v.add_account),
+
+    path('emplist',v.emp_list),
+    path('delete1',v.delete_emp),
+    path('delete2/<int:eid>',v.delete2_emp),
+    path('edit/<int:eid>',v.edit_emp),
+
+    path('accoulist',v.accou_list),
+    path('acdelete1',v.delete_accou),
+    path('acdelete2/<int:aid>',v.delete2_accou),
+    path('acedit/<int:aid>',v.edit_accou),
 ]

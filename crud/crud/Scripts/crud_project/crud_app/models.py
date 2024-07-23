@@ -26,7 +26,7 @@ class Account(models.Model):
     month=models.CharField(max_length=30)
     year=models.CharField(max_length=30)
     description=models.TextField(max_length=300)
-    emp=models.Foreignkey(Emp,on_delete=models.CASCADE)
+    emp=models.ForeignKey(Emp,on_delete=models.CASCADE)
 
 
     class Meta:
@@ -34,5 +34,5 @@ class Account(models.Model):
 
 class AccountForm(forms.ModelForm):
     class Meta:
-        model=account
+        model=Account
         fields='__all__'
