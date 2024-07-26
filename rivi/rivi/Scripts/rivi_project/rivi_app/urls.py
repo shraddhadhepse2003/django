@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',v.home),
     path('addemp',v.add_emp),
+    path('addaccount',v.add_account),
 ]

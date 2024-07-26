@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect
-from .models import Emp
+from .models import Emp,AccountForm
 
 # Create your views here.
 def home(request):
@@ -19,3 +19,13 @@ def add_emp(request):
         return redirect('/')
     else:
         return render(request,'addemp.html')
+
+def add_account(request):
+    if request.method=="POST":
+        f=AccountForm(request.POST)
+        f.save()
+        return redirect('/')
+    else:
+        f=AccountForm
+        context={'form':f}
+        return render(request,'addaccount.html',context)

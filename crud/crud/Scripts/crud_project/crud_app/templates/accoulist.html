@@ -7,7 +7,9 @@
         <th>Salary</th>
         <th>Month</th>
         <th>Year</th>
-        <th></th>
+        <th>Emp Email</th>
+        <th>Emp Address</th>
+        <th>Emp Contact</th>
         <th colspan="3">Action</th>
     </tr>
 
@@ -18,6 +20,9 @@
         <td>{{i.salary}}</td>
         <td>{{i.month}}</td>
         <td>{{i.year}}</td>
+        <td>{{i.emp.email}}</td>
+        <td>{{i.emp.address}}</td>
+        <td>{{i.emp.contact}}</td>
 
         <td><a href="acdelete1?id={{i.id}}">Delete1</td>
         <td><a href="acdelete2/{{i.id}}">Delete2</td>
