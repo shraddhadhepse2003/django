@@ -1,4 +1,10 @@
 {%extends 'sidebar.html'%}
 {%block body%}
+
 <h1>Daily Income Expense Project</h1>
+{%if user.is_authenticated%}
+<h2 style="color: blue;">Wecome: {{user}}</h2>
+<h2 style="color: red;">Total Balance is:{{bal}}</h2>
+{%endif%}
+
 {%endblock%}

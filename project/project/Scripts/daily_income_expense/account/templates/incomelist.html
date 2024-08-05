@@ -1,23 +1,31 @@
 {%extends 'sidebar.html'%}
 {%block body%}
 <h1>Income List</h1>
+<form action="{%url 'income:income_search'%}" method="post">
+    {%csrf_token%}
+    <textarea name="srch" id="" rows="3" cols="50"></textarea>
+    <input type="submit" value="search">
+</form>
 
+{%if inc%}
 <table border="1">
     <tr>
     <th>ID</th>
     <th>Income</th>
     <th>Income_type</th>
     <th>Income_date</th>
+    <th>Description</th>
     <th>Name</th>
     <th colspan="2">Action</th>
 
 </tr>
-{%for i in inclist%}
+{%for i in inc%}
 <tr>
     <td>{{i.id}}</td>
     <td>{{i.income}}</td>
     <td>{{i.income_type}}</td>
     <td>{{i.income_date}}</td>
+    <td>{{i.description}}</td>
     <td>{{i.user}}</td>
     <td><a href="indelete/{{i.id}}">Delete</a></td>
     <td><a href="inedit/{{i.id}}">Edit</a></td>
@@ -25,4 +33,33 @@
 </tr>
 {%endfor%}
 </table>
+{%else%}
+<h1>No record found....</h1>
+{%endif%}
+
+<style>
+    .rside{
+        width: 200px;
+        height: 100%;
+        background-color: aqua;
+        position: fixed;
+        right: 0%;
+        top: 0%;
+        
+    }
+    h3{
+        margin: 10px;
+        padding: 10px;
+    }
+    .rside a{
+        text-decoration: none;
+    }
+</style>
+<div class="rside">
+    <h2>Short by income_type</h2>
+    <h3><a href="{%url 'income:list'%}">All</a></h3>
+    {%for i in inct%}
+    <h3><a href="{%url 'income:inc1' i%}">{{i}}</a></h3>
+    {%endfor%}
+</div>
 {%endblock%}

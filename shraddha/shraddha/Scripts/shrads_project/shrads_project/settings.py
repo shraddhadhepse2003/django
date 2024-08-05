@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0)=hp=q*ao1s$1g%6wcy4$#8j8a%6gqx-m31*eaq-_48!cd!r-'
+SECRET_KEY = 'django-insecure-f@8=0nc$(oty(fw@1f*t-72&w5*&2j0t7i+1#@ftvgz6=j(ouz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'shrads_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shrad_db',
+        'NAME': 'shr_db',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',

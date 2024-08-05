@@ -21,7 +21,9 @@ from .import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('income',v.add_income,name='incm'),
-    path('incomelist',v.income_list),
+    path('incomelist',v.income_list,name='list'),
     path('indelete/<int:inid>',v.delete_income),
     path('inedit/<int:inid>',v.edit_income),
+    path('income_search',v.inc_search,name='income_search'),
+    path('ict/<str:inc2>',v.sort_by_income_type,name='inc1'),
 ]

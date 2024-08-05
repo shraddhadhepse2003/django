@@ -4,7 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    context={'bal':get_balance(request)}
+    return render(request,'home.html',context)
 
 def register_view(request):
     if request.method=="POST":
@@ -24,6 +25,7 @@ def login_view(request):
         user=authenticate(request,username=uname,password=passw)
 
         if user is not None:
+            request.session['uid']=user.id
             login(request,user)
             return redirect('/')
 
@@ -39,4 +41,22 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+from income.models import Income
+from expense.models import Expense
+def get_balance(request):
+    uid=request.session.get('uid')
+    incl=Income.objects.filter(user=uid)
+    expl=Expense.objects.filter(user=uid)
+
+    total_income=0
+    total_expense=0
+
+    for i in incl:
+        total_income=total_income+i.income
+    
+    for i in expl:
+        total_expense=total_expense+i.expense
+    
+    return total_income-total_expense
 

@@ -1,0 +1,24 @@
+<h1>CourseInfoList</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Fee</th>
+        <th>Duration</th>
+        <th>Stu_Name</th>
+        <th colspan="2">Action</th>
+
+    </tr>
+    {%for i in courselist%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.c_name}}</td>
+        <td>{{i.c_fee}}</td>
+        <td>{{i.c_duration}}</td>
+        <td>{{i.stud}}</td>
+        <td><a href="delete/{{i.id}}">Delete</a></td>
+        <td><a href="edit/{{i.id}}">Edit</a></td>
+    </tr>
+    {%endfor%}
+</table>
