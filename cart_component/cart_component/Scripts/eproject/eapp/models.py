@@ -5,10 +5,13 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     category_name=models.CharField(max_length=30)
-    description=models.IntegerField()
+    description=models.TextField(max_length=300)
 
     class Meta:
         db_table:'category'
+
+    def __str__(self):
+        return self.category_name
 
 class Product(models.Model):
     p_name=models.CharField(max_length=30)

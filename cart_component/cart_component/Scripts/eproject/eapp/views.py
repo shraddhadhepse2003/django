@@ -9,8 +9,8 @@ def home(request):
 
 def add_user(request):
     if request.method=='POST':
-        f=UserCreationForm
-        f.save
+        f=UserCreationForm(request.POST)
+        f.save()
         return redirect('/')
 
     else:
@@ -34,3 +34,10 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+from .models import Product
+def product_list(request):
+    pl=Product.objects.all()
+    context={'pl':pl}
+    return render(request,'productlist.html',context)
